@@ -1,0 +1,71 @@
+/* Brand visual language: oversized circles + pill backgrounds */
+
+.shape-pill {
+  position: absolute;
+  border-radius: var(--radius-pill);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shape-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shape-pill--sage   { background: var(--color-sage-soft); }
+.shape-pill--cream  { background: var(--color-cream-deep); }
+.shape-pill--sky    { background: var(--color-sky); }
+.shape-pill--evergreen { background: var(--color-evergreen); }
+
+.shape-circle--sage   { background: var(--color-sage); }
+.shape-circle--terracotta { background: var(--color-terracotta); }
+.shape-circle--sky    { background: var(--color-sky); }
+.shape-circle--cream  { background: var(--color-cream-deep); }
+.shape-circle--evergreen { background: var(--color-evergreen); }
+
+.shape-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(31, 77, 63, 0.35);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* A reusable section that lives inside a giant pill */
+.pill-section {
+  position: relative;
+  border-radius: clamp(40px, 8vw, 120px);
+  padding: clamp(3rem, 7vw, 6rem) clamp(1.5rem, 5vw, 4rem);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.pill-section--evergreen {
+  background: var(--color-evergreen);
+  color: var(--color-cream);
+}
+
+.pill-section--evergreen h1,
+.pill-section--evergreen h2,
+.pill-section--evergreen h3 {
+  color: var(--color-cream);
+}
+
+.pill-section--evergreen p { color: rgba(250, 246, 239, 0.82); }
+
+.pill-section--sage { background: var(--color-sage-soft); }
+.pill-section--cream { background: var(--color-cream-deep); }
+.pill-section--sky { background: var(--color-sky); }
+
+/* Stack content above decorative shapes */
+.pill-section > * { position: relative; z-index: 1; }
+
+.bg-decor {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}

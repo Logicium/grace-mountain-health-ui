@@ -1,0 +1,68 @@
+:root {
+  /* Brand palette — evokes mountains, calm clinical care, warmth */
+  --color-evergreen: #1f4d3f;
+  --color-evergreen-dark: #143229;
+  --color-sage: #a8c5b5;
+  --color-sage-soft: #d6e6dd;
+  --color-cream: #faf6ef;
+  --color-cream-deep: #f1e9d8;
+  --color-terracotta: #e8b59e;
+  --color-sky: #cfe3ea;
+  --color-ink: #1b1f1d;
+  --color-ink-soft: #4b524f;
+  --color-mute: #7a807d;
+  --color-line: rgba(27, 31, 29, 0.08);
+  --color-white: #ffffff;
+
+  --color-bg: var(--color-cream);
+  --color-text: var(--color-ink);
+  --color-primary: var(--color-evergreen);
+  --color-primary-contrast: var(--color-cream);
+  --color-accent: var(--color-terracotta);
+
+  /* Type scale */
+  --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-serif: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+  --fs-display: clamp(2.75rem, 6vw + 1rem, 5.5rem);
+  --fs-h1: clamp(2.25rem, 4vw + 1rem, 3.75rem);
+  --fs-h2: clamp(1.75rem, 2.4vw + 1rem, 2.625rem);
+  --fs-h3: clamp(1.25rem, 1vw + 1rem, 1.625rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9375rem;
+  --lh-tight: 1.05;
+  --lh-snug: 1.25;
+  --lh-body: 1.6;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  /* Shapes */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+  --radius-pill: 999px;
+
+  /* Shadows — soft, clinical-clean */
+  --shadow-sm: 0 1px 2px rgba(20, 50, 41, 0.06);
+  --shadow-md: 0 12px 32px -16px rgba(20, 50, 41, 0.18);
+  --shadow-lg: 0 30px 80px -32px rgba(20, 50, 41, 0.28);
+
+  /* Layout */
+  --container: 1200px;
+  --container-tight: 960px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast: 160ms;
+  --t-base: 280ms;
+}
