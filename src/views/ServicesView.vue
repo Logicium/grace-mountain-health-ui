@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import PillSection from '@/components/PillSection.vue'
 import SectionHeading from '@/components/SectionHeading.vue'
-import StatPill from '@/components/StatPill.vue'
 import EhrCta from '@/components/EhrCta.vue'
-import BaseButton from '@/components/BaseButton.vue'
-
-const ehr = import.meta.env.VITE_EHR_URL
 
 const tags = [
   'Annual physicals', 'Same-day sick visits', 'Telehealth', 'Diabetes care',
@@ -135,17 +131,6 @@ const journey = [
         delivered with the time and continuity modern medicine usually skips.
       </p>
 
-      <div class="svc-hero__stats">
-        <StatPill value="60 min" label="first-visit length" tone="sage" />
-        <StatPill value="9" label="service lines" tone="cream" />
-        <StatPill value="1 team" label="for your whole family" tone="sky" />
-      </div>
-
-      <div class="svc-hero__actions">
-        <BaseButton :href="ehr" external variant="primary" size="lg">Book a visit</BaseButton>
-        <BaseButton to="/pricing" variant="ghost">See pricing &amp; insurance</BaseButton>
-      </div>
-
       <ul class="svc-hero__tags" aria-label="What we treat">
         <li v-for="t in tags" :key="t">{{ t }}</li>
       </ul>
@@ -254,8 +239,6 @@ const journey = [
   color: var(--color-ink-soft);
   margin: 0;
 }
-.svc-hero__stats { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); }
-.svc-hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); }
 
 .svc-hero__tags {
   list-style: none;
@@ -286,12 +269,13 @@ const journey = [
 .svc-hero__pill {
   position: absolute;
   background: var(--color-sage-soft);
-  border-radius: var(--radius-pill);
+  border-top-left-radius: var(--radius-pill);
+  border-top-right-radius: var(--radius-pill);
   width: min(120vw, 1400px);
   height: clamp(420px, 60vw, 760px);
   left: 50%;
-  top: 6%;
-  transform: translateX(-50%) rotate(-4deg);
+  bottom: 0;
+  transform: translateX(-50%);
   opacity: 0.7;
 }
 .svc-hero__c1 { width: clamp(220px, 22vw, 360px); aspect-ratio: 1; top: 4%; left: -6%; opacity: 0.6; }
