@@ -11,14 +11,15 @@ const year = new Date().getFullYear()
     <div class="ft__pill container">
       <div class="ft__grid">
         <div class="ft__brand">
-          <h3 class="ft__title">Care that meets you on the mountain.</h3>
-          <p>Compassionate, modern healthcare for the life you actually live.</p>
+          <h3 class="ft__title">Guided by Grace. Committed to wellness.</h3>
+          <p>Modern primary care &amp; wellness rooted in Trinidad, Colorado.</p>
           <a class="ft__cta" :href="ehr" target="_blank" rel="noopener">Schedule a visit →</a>
         </div>
 
         <div>
           <h4>Visit</h4>
-          <p>134 W Main St<br />Trinidad, CO 81082</p>
+          <p>107 Moores Canyon Rd<br />Trinidad, CO 81082</p>
+          <p class="ft__muted">Suite number coming soon</p>
         </div>
 
         <div>
@@ -81,6 +82,7 @@ const year = new Date().getFullYear()
 
 .ft__cta { display: inline-block; margin-top: var(--space-2); font-weight: 600; }
 .ft__list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+.ft__muted { font-size: 0.82rem; font-style: italic; color: rgba(250, 246, 239, 0.55); }
 
 .ft__base {
   position: relative; z-index: 1;

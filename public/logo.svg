@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" role="img" aria-label="Grace Mountain Health and Wellness">
+  <title>Grace Mountain Health and Wellness</title>
+  <defs>
+    <linearGradient id="mtnDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7d8f97"/>
+      <stop offset="1" stop-color="#3b5c6a"/>
+    </linearGradient>
+    <linearGradient id="mtnMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a9b8bf"/>
+      <stop offset="1" stop-color="#5a7180"/>
+    </linearGradient>
+    <linearGradient id="ridge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8aa07a"/>
+      <stop offset="1" stop-color="#5d7a4f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- back outer mountains -->
+  <path d="M30,330 L160,160 L240,260 L310,170 L360,230 L410,170 L480,260 L560,160 L690,330 Z"
+        fill="url(#mtnDark)"/>
+
+  <!-- snow caps on back peaks -->
+  <path d="M150,170 L170,200 L155,200 L160,215 L145,210 L135,225 L130,210 L150,170 Z" fill="#ecf2f5" opacity="0.95"/>
+  <path d="M555,170 L575,200 L560,200 L565,215 L550,210 L540,225 L535,210 L555,170 Z" fill="#ecf2f5" opacity="0.95"/>
+  <path d="M355,235 L365,260 L350,255 L355,275 L340,265 L335,280 L330,265 L355,235 Z" fill="#ecf2f5" opacity="0.85"/>
+
+  <!-- front green ridge -->
+  <path d="M30,335 L150,260 L240,300 L320,250 L360,290 L400,250 L480,300 L570,260 L690,335 L690,360 L30,360 Z"
+        fill="url(#ridge)"/>
+
+  <!-- subtle ridge highlight -->
+  <path d="M30,335 L150,260 L240,300 L320,250 L360,290 L400,250 L480,300 L570,260 L690,335"
+        fill="none" stroke="#3f5a36" stroke-width="2" opacity="0.4"/>
+
+  <!-- cross -->
+  <g transform="translate(360, 235)">
+    <rect x="-22" y="-130" width="44" height="180" rx="3" fill="#1f3a44"/>
+    <rect x="-70" y="-78" width="140" height="42" rx="3" fill="#1f3a44"/>
+    <rect x="-16" y="-126" width="32" height="172" fill="#264a55" opacity="0.55"/>
+    <rect x="-66" y="-74" width="132" height="34" fill="#264a55" opacity="0.55"/>
+  </g>
+
+  <!-- wordmark: GRACE MOUNTAIN -->
+  <g fill="#1f3a44" font-family="Georgia, 'Times New Roman', serif" font-weight="700" text-anchor="middle">
+    <text x="360" y="430" font-size="74" letter-spacing="6">GRACE</text>
+    <text x="360" y="495" font-size="74" letter-spacing="6">MOUNTAIN</text>
+  </g>
+  <text x="360" y="525" fill="#1f3a44" font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="18" letter-spacing="8" text-anchor="middle">HEALTH &amp; WELLNESS</text>
+</svg>

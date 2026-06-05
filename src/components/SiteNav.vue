@@ -25,14 +25,8 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 <template>
   <header class="nav" :class="{ 'nav--scrolled': scrolled, 'nav--open': open }">
     <div class="container nav__bar">
-      <RouterLink to="/" class="nav__brand" @click="open = false">
-        <span class="nav__mark" aria-hidden="true">
-          <svg viewBox="0 0 40 40" width="40" height="40">
-            <circle cx="20" cy="20" r="19" fill="var(--color-evergreen)" />
-            <path d="M8 27 L17 14 L22 21 L26 16 L32 27 Z" fill="var(--color-sage)" />
-            <circle cx="14" cy="13" r="2.4" fill="var(--color-terracotta)" />
-          </svg>
-        </span>
+      <RouterLink to="/" class="nav__brand" @click="open = false" aria-label="Grace Mountain Health & Wellness — home">
+        <img class="nav__logo" src="/logo.svg" alt="" aria-hidden="true" />
         <span class="nav__brand-text">
           <span class="nav__brand-line">Grace Mountain</span>
           <span class="nav__brand-sub">Health &amp; Wellness</span>
@@ -95,6 +89,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 .nav__brand-text { display: flex; flex-direction: column; line-height: 1.05; }
 .nav__brand-line { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; }
 .nav__brand-sub { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-mute); }
+.nav__logo { height: 44px; width: auto; display: block; }
 
 .nav__links {
   display: flex;

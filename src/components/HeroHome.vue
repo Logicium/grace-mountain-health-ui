@@ -18,14 +18,14 @@ const ehr = import.meta.env.VITE_EHR_URL
 
     <div class="container hero__grid">
       <div class="hero__copy">
-        <span class="eyebrow">Mountain-grown primary care</span>
+        <span class="eyebrow">Primary care &amp; wellness · Trinidad, CO</span>
         <h1 id="hero-title" class="hero__title">
-          Healthcare that moves <em>with</em> you,<br />
-          not against you.
+          Guided by <em>Grace</em>.<br />
+          Committed to wellness.
         </h1>
         <p class="hero__sub">
-          Grace Mountain is a modern primary care &amp; wellness practice in Trinidad, Colorado —
-          built on long visits, real listening, and care plans you can actually follow.
+          Grace Mountain Health &amp; Wellness is a modern primary care practice in Trinidad, Colorado —
+          built on long visits, real listening, and transparent, affordable pricing for our community.
         </p>
 
         <div class="hero__cta">
@@ -38,9 +38,9 @@ const ehr = import.meta.env.VITE_EHR_URL
         </div>
 
         <div class="hero__stats">
-          <StatPill value="60 min" label="new patient visits" tone="sage" />
-          <StatPill value="Same-week" label="appointments" tone="cream" />
-          <StatPill value="In-network" label="with major insurers" tone="sky" />
+          <StatPill value="Same-week" label="appointments" tone="sage" />
+          <StatPill value="Cash &amp; insurance" label="options available" tone="cream" />
+          <StatPill value="Telehealth" label="when appropriate" tone="sky" />
         </div>
       </div>
 
@@ -52,7 +52,7 @@ const ehr = import.meta.env.VITE_EHR_URL
           <span class="dot" /> Now welcoming new patients
         </span>
         <span class="hero__chip hero__chip--bot">
-          ★ 4.9 from 280+ patient reviews
+          Guided by Grace. Committed to wellness.
         </span>
       </div>
     </div>

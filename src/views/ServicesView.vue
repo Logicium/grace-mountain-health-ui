@@ -4,44 +4,43 @@ import SectionHeading from '@/components/SectionHeading.vue'
 import EhrCta from '@/components/EhrCta.vue'
 
 const tags = [
-  'Annual physicals', 'Same-day sick visits', 'Telehealth', 'Diabetes care',
-  'Hypertension', 'Thyroid', 'Nutrition', 'Sleep & stress',
-  'Well-woman', 'Perimenopause', 'Pediatrics', 'Adolescent care',
-  'Anxiety & depression', 'ADHD evaluation', 'Skin biopsies', 'Joint injections',
-  'IUD placement', 'On-site labs',
+  'Annual wellness exams', 'Same-day sick visits', 'Telehealth', 'Chronic disease management',
+  'Diabetes & A1c', 'Hypertension', 'Thyroid', 'Weight management',
+  'Pediatric & family care', 'Men’s & women’s health', 'Minor injury care', 'Wound care',
+  'IV hydration', 'B12 & wellness injections', 'Point-of-care testing', 'Lab review',
 ]
 
 const pillars = [
   {
     key: 'primary',
     eyebrow: '01 · Foundation',
-    title: 'Primary care, reimagined',
-    body: 'Long visits, same-day messaging, and a care plan you actually understand. The relationship is the medicine.',
-    bullets: ['45–60 min visits', 'Same-week openings', 'Direct messaging'],
+    title: 'Primary care for the whole family',
+    body: 'New patient visits, follow-ups, annual exams, medication management, and care coordination — all delivered with continuity and time.',
+    bullets: ['Annual exams', 'Sick visits', 'Med refills', 'Lab review'],
     tone: 'evergreen' as const,
   },
   {
-    key: 'wellness',
-    eyebrow: '02 · Daily life',
-    title: 'Whole-person wellness',
-    body: 'Nutrition, sleep, movement, and mental health woven into every visit — not bolted on as an add-on.',
-    bullets: ['1:1 dietitian', 'Sleep coaching', 'Behavioral support'],
+    key: 'walkin',
+    eyebrow: '02 · When you need us',
+    title: 'Walk-in & same-day sick visits',
+    body: 'Coughs, colds, fever, sore throat, ear pain, UTIs, rashes, and more — seen quickly, in clinic or by telehealth when appropriate.',
+    bullets: ['Same-day visits', 'Telehealth', 'Rapid testing'],
     tone: 'sage' as const,
   },
   {
-    key: 'family',
-    eyebrow: '03 · Every season',
-    title: 'Women’s & family health',
-    body: 'Annual exams, contraception, perimenopause, and pediatrics from infancy through adolescence — one team for the whole household.',
-    bullets: ['Well-woman visits', 'Pediatric care', 'Perimenopause'],
+    key: 'chronic',
+    eyebrow: '03 · The long haul',
+    title: 'Chronic disease management',
+    body: 'Diabetes, hypertension, asthma, COPD, thyroid, and more — managed with steady follow-up and shared care plans.',
+    bullets: ['Diabetes', 'Hypertension', 'Asthma / COPD'],
     tone: 'cream' as const,
   },
   {
-    key: 'chronic',
-    eyebrow: '04 · The long haul',
-    title: 'Chronic condition coaching',
-    body: 'Diabetes, blood pressure, autoimmune support — guided by data, paced for the realities of your week.',
-    bullets: ['Quarterly reviews', 'Optional remote monitoring', 'Shared care plans'],
+    key: 'weight',
+    eyebrow: '04 · Whole-person',
+    title: 'Weight & wellness',
+    body: 'Medically guided weight management, IV hydration, and wellness injections — with GLP-1 medication options when clinically appropriate.',
+    bullets: ['Weight management', 'IV hydration', 'B12 / wellness injections'],
     tone: 'terracotta' as const,
   },
 ]
@@ -49,65 +48,237 @@ const pillars = [
 const detailed = [
   {
     eyebrow: 'Primary care',
-    title: 'Annual physicals & preventive care',
-    body: 'A relaxed, unhurried visit that covers screenings, labs, immunizations, and the lifestyle conversations most appointments skip.',
-    bullets: ['45–60 minute visits', 'Comprehensive labs & screenings', 'Personalized prevention plan'],
+    title: 'Primary care services',
+    body: 'Ongoing primary care for new and established patients across the lifespan.',
+    bullets: [
+      'New patient visits & follow-ups',
+      'Annual wellness exams & routine physicals',
+      'Preventive health screenings',
+      'Medication refills & management',
+      'Blood pressure checks & monitoring',
+      'Lab ordering & review',
+      'Referrals to specialists when needed',
+      'Care coordination for complex needs',
+    ],
   },
   {
     eyebrow: 'Acute care',
-    title: 'Same-day & next-day sick visits',
-    body: 'When something’s off, we want to see you fast — in-clinic or by secure video — without the urgent-care runaround.',
-    bullets: ['Same/next-day appointments', 'Telehealth from anywhere in CO', 'Direct messaging with your team'],
+    title: 'Walk-in & same-day sick visits',
+    body: 'For the things that just can’t wait for next month.',
+    bullets: [
+      'Cough, cold, sore throat, fever',
+      'Flu-like & COVID-like symptoms',
+      'Sinus pressure & ear pain',
+      'Nausea, vomiting, diarrhea, mild dehydration',
+      'Seasonal allergies & bronchitis symptoms',
+      'Asthma flare-ups',
+      'Urinary symptoms & UTIs',
+      'Skin irritation, rashes, minor infections',
+    ],
   },
   {
     eyebrow: 'Chronic conditions',
-    title: 'Coaching for the long haul',
-    body: 'Diabetes, hypertension, thyroid, autoimmune — managed with continuity, data review between visits, and a coach in your corner.',
-    bullets: ['Quarterly deep-dive visits', 'Remote monitoring (optional)', 'Shared care plans'],
+    title: 'Chronic disease management',
+    body: 'Steady, relationship-based management for ongoing conditions.',
+    bullets: [
+      'High blood pressure & cholesterol',
+      'Type 2 diabetes & prediabetes',
+      'Asthma & COPD',
+      'Thyroid disorders',
+      'Obesity & weight-related concerns',
+      'GERD / acid reflux',
+      'Arthritis & chronic pain concerns',
+      'Anxiety, depression & sleep concerns',
+    ],
   },
   {
-    eyebrow: 'Wellness',
-    title: 'Nutrition & lifestyle medicine',
-    body: 'Work one-on-one with our registered dietitian on the food, sleep, and movement habits that move the needle for you — not a generic plan.',
-    bullets: ['1:1 dietitian sessions', 'Sleep & stress assessments', 'Mountain-life-friendly plans'],
+    eyebrow: 'Preventive',
+    title: 'Preventive care & wellness',
+    body: 'Get ahead of issues with screening, lifestyle counseling, and a plan tailored to you.',
+    bullets: [
+      'Annual wellness visits',
+      'Preventive lab screening',
+      'Diabetes & cholesterol screening',
+      'Weight & BMI assessment',
+      'Nutrition & lifestyle counseling',
+      'Tobacco cessation support',
+      'Age-appropriate screenings',
+      'Specialty referral coordination',
+    ],
+  },
+  {
+    eyebrow: 'Men’s health',
+    title: 'Men’s health',
+    body: 'Annual exams and the screenings that matter most for men.',
+    bullets: [
+      'Annual men’s wellness exams',
+      'Blood pressure & cholesterol screening',
+      'Diabetes screening',
+      'Weight & energy management',
+      'Prostate health discussion',
+      'Cardiovascular risk assessment',
+      'Mental health screening',
+    ],
   },
   {
     eyebrow: 'Women’s health',
-    title: 'Care across every season',
-    body: 'Annual exams, contraception, fertility conversations, perimenopause and menopause — handled with time, nuance, and zero rushing.',
-    bullets: ['Well-woman visits', 'Hormonal health support', 'Perimenopause guidance'],
+    title: 'Women’s health',
+    body: 'Care across every season — from annuals through menopause.',
+    bullets: [
+      'Annual wellness visits',
+      'Menstrual & menopause-related concerns',
+      'Thyroid screening',
+      'Urinary symptoms',
+      'Basic reproductive health counseling',
+      'Breast health discussion',
+      'Referral coordination (mammograms, gynecology, specialty care)',
+    ],
   },
   {
-    eyebrow: 'Pediatrics',
-    title: 'Family medicine, infant through teen',
-    body: 'Well-child visits, school physicals, and adolescent care from a team that already knows the rest of your family.',
-    bullets: ['Well-child checks', 'Sports & school physicals', 'Adolescent mental health'],
+    eyebrow: 'Family',
+    title: 'Pediatric & family care',
+    body: 'Care for children and teens, plus families seen together.',
+    bullets: [
+      'Sick visits for children & teens',
+      'Fever, cough, cold, sore throat, ear pain',
+      'Allergy & asthma support',
+      'Sports & school physicals',
+      'Basic wellness guidance',
+      'Specialty pediatric referral coordination',
+    ],
   },
   {
-    eyebrow: 'Mental health',
-    title: 'Integrated behavioral support',
-    body: 'Anxiety, depression, ADHD evaluation, and grief — supported within primary care, with referrals to trusted specialists when helpful.',
-    bullets: ['Brief therapy & coaching', 'Medication management', 'Warm specialist referrals'],
+    eyebrow: 'Minor injury',
+    title: 'Minor injury & wound care',
+    body: 'On-site care for the bumps, scrapes, and strains of daily life.',
+    bullets: [
+      'Minor cuts, scrapes & burns',
+      'Sprains & strains',
+      'Minor wound checks & dressing',
+      'Minor sports & work injuries',
+      'Back, joint, and muscle pain',
+      'Splinter / minor foreign body care',
+    ],
   },
   {
-    eyebrow: 'Procedures',
-    title: 'In-office procedures',
-    body: 'Skin biopsies, joint injections, IUD placement, ear lavage, and more — done in our clinic, by people you already trust.',
-    bullets: ['Skin & soft-tissue', 'Women’s health procedures', 'Musculoskeletal injections'],
+    eyebrow: 'Respiratory',
+    title: 'Respiratory care',
+    body: 'Evaluation and management for everything from a cough to a flare.',
+    bullets: [
+      'Cough, congestion & sinus symptoms',
+      'Bronchitis & sore throat',
+      'Asthma & COPD symptoms',
+      'Wheezing & shortness of breath evaluation',
+      'Seasonal allergies',
+      'Flu-like & COVID-like illness',
+    ],
   },
   {
-    eyebrow: 'Diagnostics',
-    title: 'On-site labs & imaging coordination',
-    body: 'Most labs drawn in-clinic with results reviewed together. Imaging coordinated with trusted partners across southern Colorado.',
-    bullets: ['On-site phlebotomy', 'Same-day rapid testing', 'Coordinated imaging referrals'],
+    eyebrow: 'Testing',
+    title: 'Point-of-care testing',
+    body: 'In-house rapid testing so we can act on results the same visit.',
+    bullets: [
+      'Rapid strep, flu, COVID & RSV',
+      'Mononucleosis testing',
+      'Urinalysis & urine pregnancy (hCG)',
+      'Fingerstick glucose & A1c',
+      'Urine microalbumin',
+    ],
+  },
+  {
+    eyebrow: 'Weight & wellness',
+    title: 'Weight management',
+    body: 'A medically guided program with optional GLP-1 medication support.',
+    bullets: [
+      'Weight loss consultation',
+      'Lifestyle & nutrition counseling',
+      'Metabolic health evaluation',
+      'Lab review & follow-up monitoring',
+      'GLP-1 medication discussion when appropriate',
+      'Goal setting & accountability',
+    ],
+  },
+  {
+    eyebrow: 'IV & injections',
+    title: 'IV hydration & wellness injections',
+    body: 'Hydration and targeted injections, screened for safety first.',
+    bullets: [
+      'IV hydration & wellness IV therapy',
+      'B12 & Lipo-Mino injections',
+      'Vitamin D injections',
+      'Tri-Immune injections',
+      'Patient screening before treatment',
+    ],
+  },
+  {
+    eyebrow: 'Heart health',
+    title: 'Cardiovascular support',
+    body: 'Risk reduction, monitoring, and coordinated specialty referral when needed.',
+    bullets: [
+      'Blood pressure & cholesterol',
+      'Diabetes- & obesity-related heart risk',
+      'Palpitations & chest discomfort screening',
+      'Lifestyle counseling',
+      'Medication management',
+      'Cardiology referral coordination',
+    ],
+  },
+  {
+    eyebrow: 'Digestive',
+    title: 'Digestive health',
+    body: 'Evaluation and management for common GI concerns.',
+    bullets: [
+      'Acid reflux / GERD',
+      'Nausea, vomiting, diarrhea, constipation',
+      'Abdominal discomfort & bloating',
+      'Hemorrhoid concerns',
+      'GI / colonoscopy referral coordination',
+    ],
+  },
+  {
+    eyebrow: 'Skin',
+    title: 'Skin conditions',
+    body: 'Care for the most common skin concerns we see.',
+    bullets: [
+      'Rashes, eczema, contact dermatitis',
+      'Acne & hives',
+      'Insect bites & allergic reactions',
+      'Minor skin & fungal infections',
+      'Wound checks & minor burns',
+    ],
+  },
+  {
+    eyebrow: 'Musculoskeletal',
+    title: 'Musculoskeletal & mobility',
+    body: 'Conservative management and referral coordination for pain and mobility concerns.',
+    bullets: [
+      'Back, neck, shoulder, knee & hip pain',
+      'Sprains & strains',
+      'Arthritis concerns',
+      'Minor sports & overuse injuries',
+      'Imaging, PT & orthopedics referrals',
+    ],
+  },
+  {
+    eyebrow: 'Telehealth',
+    title: 'Telehealth services',
+    body: 'Virtual visits when they’re the right fit for your care.',
+    bullets: [
+      'Lab review & medication follow-up',
+      'Chronic condition follow-up',
+      'Diabetes & blood pressure follow-up',
+      'Weight management follow-up',
+      'Minor illness / sick visits',
+      'Lifestyle & wellness coaching',
+    ],
   },
 ]
 
 const journey = [
-  { n: '01', t: 'Tell us your story', d: 'A 20-minute intro call so we can match you to the right care team — no pressure, no paperwork.' },
-  { n: '02', t: 'Your first long visit', d: '60 minutes to actually be heard, get a baseline, and build a plan together.' },
-  { n: '03', t: 'Care between visits', d: 'Secure messaging, lab reviews, and check-ins so health stays a conversation — not an emergency.' },
-  { n: '04', t: 'Adjust as life changes', d: 'Your plan evolves with you. We revisit it together, because real bodies don’t stand still.' },
+  { n: '01', t: 'Reach out', d: 'Book online through our portal or give us a call — no pressure, no runaround.' },
+  { n: '02', t: 'Your first visit', d: 'We take the time to get a full picture: history, goals, and what matters most to you.' },
+  { n: '03', t: 'Care between visits', d: 'Med refills, lab review, and follow-ups handled in-clinic or by telehealth.' },
+  { n: '04', t: 'Care that grows with you', d: 'Your plan evolves alongside your life. We stay in your corner for the long haul.' },
 ]
 </script>
 
@@ -123,12 +294,13 @@ const journey = [
     <div class="container svc-hero__inner">
       <span class="eyebrow">Services · Trinidad, CO</span>
       <h1 id="svc-title" class="svc-hero__title">
-        Whole-person care,<br />
-        all under <em>one</em> mountain roof.
+        Primary care, walk-in visits,<br />
+        and <em>whole-person</em> wellness.
       </h1>
       <p class="svc-hero__lede">
-        Primary care, wellness, women’s health, pediatrics, and behavioral support —
-        delivered with the time and continuity modern medicine usually skips.
+        Comprehensive primary care for families across Southern Colorado — from
+        annual exams and chronic disease management to sick visits, minor injury
+        care, weight management, and telehealth.
       </p>
 
       <ul class="svc-hero__tags" aria-label="What we treat">
@@ -291,13 +463,13 @@ const journey = [
   margin-top: var(--space-6);
 }
 .pillar--primary  { grid-column: 1 / 2; grid-row: 1 / 3; }
-.pillar--wellness { grid-column: 2 / 3; grid-row: 1 / 2; }
-.pillar--family   { grid-column: 3 / 4; grid-row: 1 / 2; }
-.pillar--chronic  { grid-column: 2 / 4; grid-row: 2 / 3; }
+.pillar--walkin   { grid-column: 2 / 3; grid-row: 1 / 2; }
+.pillar--chronic  { grid-column: 3 / 4; grid-row: 1 / 2; }
+.pillar--weight   { grid-column: 2 / 4; grid-row: 2 / 3; }
 
 @media (max-width: 900px) {
   .pillars { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
-  .pillar--primary, .pillar--wellness, .pillar--family, .pillar--chronic {
+  .pillar--primary, .pillar--walkin, .pillar--chronic, .pillar--weight {
     grid-column: auto; grid-row: auto;
   }
   .pillar--primary { grid-column: 1 / -1; }
@@ -398,32 +570,15 @@ const journey = [
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-evergreen);
   font-weight: 600;
+  color: var(--color-evergreen);
 }
-.svc-item__title { margin: 0; font-size: 1.2rem; }
-.svc-item__body { margin: 0; color: var(--color-ink-soft); }
-.svc-item__list {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-3) 0 0;
-  display: grid;
-  gap: var(--space-2);
-}
-.svc-item__list li {
-  position: relative;
-  padding-left: 1.25rem;
-  font-size: 0.95rem;
-}
-.svc-item__list li::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0.55em;
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--color-terracotta);
-}
+.svc-item__title { margin: var(--space-2) 0 var(--space-2); font-size: 1.2rem; color: var(--color-evergreen-dark); }
+.svc-item__body { margin: 0 0 var(--space-3); color: var(--color-ink-soft); }
+.svc-item__list { margin: 0; padding-left: 1.1rem; color: var(--color-ink); display: grid; gap: 0.3rem; }
+.svc-item__list li { font-size: 0.95rem; }
 
+/* ---------- Journey ---------- */
 .journey {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -432,12 +587,11 @@ const journey = [
 }
 @media (max-width: 900px) { .journey { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .journey { grid-template-columns: 1fr; } }
-
+.journey__step h3 { color: var(--color-cream); margin: var(--space-3) 0 var(--space-2); font-size: 1.15rem; }
+.journey__step p { color: rgba(250, 246, 239, 0.78); margin: 0; }
 .journey__num {
   font-family: var(--font-serif);
-  font-size: 1.6rem;
-  color: var(--color-sage);
+  font-size: 2rem;
+  color: var(--color-terracotta);
 }
-.journey__step h3 { margin: var(--space-2) 0; font-size: 1.2rem; color: var(--color-cream); }
-.journey__step p { margin: 0; color: rgba(250, 246, 239, 0.82); }
 </style>

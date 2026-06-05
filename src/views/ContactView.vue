@@ -47,7 +47,7 @@ const cards = [
           </li>
           <li>
             <span>Visit</span>
-            134 W Main St, Trinidad, CO 81082
+            107 Moores Canyon Rd, Trinidad, CO 81082<br /><em>Suite number coming soon</em>
           </li>
           <li>
             <span>Hours</span>
