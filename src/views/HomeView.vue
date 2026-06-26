@@ -63,26 +63,45 @@ onMounted(async () => { posts.value = (await fetchVlogPosts(3)) })
   </PillSection>
 
   <!-- Founder spotlight -->
-  <section class="section" aria-labelledby="founder-title">
-    <div class="container founder">
-      <div>
-        <span class="eyebrow">Meet the founder</span>
-        <h2 id="founder-title" class="founder__title">Jeff Lewis, BSN, RN, NRP</h2>
-        <p class="founder__role">Co-Founder</p>
-        <p>
-          With more than 24 years of Fire and EMS experience across urban, critical care,
-          and rural emergency medicine, Jeff founded Grace Mountain Health &amp; Wellness
-          to bring accessible, relationship-centered primary care to the families of
-          Southern Colorado and Northern New Mexico.
-        </p>
-        <BaseButton to="/about" variant="outline">Read his story</BaseButton>
+  <section class="section" aria-labelledby="founders-title">
+    <div class="container">
+      <SectionHeading
+        eyebrow="Meet the founders"
+        title="A husband-and-wife team rooted in the community."
+        subtitle="Jeff and Dena Lewis founded Grace Mountain Health & Wellness with a shared vision for accessible, relationship-centered care."
+        tag="h2"
+      />
+      <div class="founders">
+        <article class="founder">
+          <h3 class="founder__name">Jeff Lewis, BSN, RN, NRP</h3>
+          <p class="founder__role">Co-Founder</p>
+          <p>
+            With more than 24 years of Fire and EMS experience across urban,
+            critical care, and rural emergency medicine, Jeff brings deep
+            operational leadership and a paramedic&rsquo;s heart for patients in
+            their most urgent moments. As a Registered Nurse, his vision is rooted
+            in restoring trust through accessible, relationship-centered care for
+            the families of Southern Colorado and Northern New Mexico.
+          </p>
+        </article>
+
+        <article class="founder">
+          <h3 class="founder__name">Dena Lewis, DNP, AGACNP-BC, RN</h3>
+          <p class="founder__role">Co-Founder &amp; Provider</p>
+          <p>
+            A doctoral-prepared Nurse Practitioner with more than 25 years in
+            healthcare, Dr. Lewis has cared for patients across cardiology,
+            critical care, hospital and emergency medicine, hospice, and
+            underserved rural communities. She believes care should be
+            collaborative and individualized — grounded in trust, education, and
+            whole-person wellness of body, mind, and spirit.
+          </p>
+        </article>
       </div>
-      <aside class="founder__card">
-        <p class="founder__pull">
-          “Rural families deserve high-quality healthcare close to home,
-          delivered by providers who understand the people, values, and challenges of the region.”
-        </p>
-      </aside>
+
+      <div class="founders__cta">
+        <BaseButton to="/about" variant="outline">Read their full story</BaseButton>
+      </div>
     </div>
   </section>
 
@@ -134,27 +153,31 @@ onMounted(async () => { posts.value = (await fetchVlogPosts(3)) })
 }
 @media (max-width: 700px) { .vlog-head { flex-direction: column; align-items: flex-start; } }
 
-.founder {
+.founders {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-top: var(--space-6);
 }
-@media (max-width: 900px) { .founder { grid-template-columns: 1fr; } }
-.founder__title { font-size: clamp(1.8rem, 3vw, 2.4rem); margin: var(--space-3) 0 var(--space-2); }
-.founder__role { color: var(--color-mute); margin: 0 0 var(--space-4); font-weight: 600; letter-spacing: 0.04em; }
-.founder p { max-width: 56ch; margin: 0 0 var(--space-5); }
-.founder__card {
-  background: var(--color-sage-soft);
-  border-radius: var(--radius-xl);
-  padding: clamp(1.5rem, 4vw, 2.5rem);
-  position: relative;
+@media (max-width: 800px) { .founders { grid-template-columns: 1fr; } }
+
+.founder {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
 }
-.founder__pull {
+.founder__name {
   font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-  color: var(--color-evergreen-dark);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
   margin: 0;
+  color: var(--color-evergreen-dark);
 }
+.founder__role { color: var(--color-mute); margin: 0 0 var(--space-3); font-weight: 600; letter-spacing: 0.04em; font-size: 0.9rem; }
+.founder p:last-of-type { margin: 0; }
+
+.founders__cta { margin-top: var(--space-6); display: flex; justify-content: center; }
 </style>

@@ -89,7 +89,13 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 .nav__brand-text { display: flex; flex-direction: column; line-height: 1.05; }
 .nav__brand-line { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; }
 .nav__brand-sub { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-mute); }
-.nav__logo { height: 44px; width: auto; display: block; }
+.nav__logo {
+  height: clamp(72px, 9vw, 110px);
+  width: auto;
+  display: block;
+  transition: height var(--t-base);
+}
+.nav--scrolled .nav__logo { height: clamp(56px, 7vw, 84px); }
 
 .nav__links {
   display: flex;
