@@ -39,7 +39,7 @@ const ehr = import.meta.env.VITE_EHR_URL
 
         <div class="hero__stats">
           <StatPill value="Same-week" label="appointments" tone="sage" />
-          <StatPill value="Cash &amp; insurance" label="options available" tone="cream" />
+          <StatPill value="Transparent" label="cash pricing" tone="cream" />
           <StatPill value="Telehealth" label="when appropriate" tone="sky" />
         </div>
       </div>

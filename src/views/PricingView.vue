@@ -8,8 +8,8 @@ import EhrCta from '@/components/EhrCta.vue'
 const bundles = [
   {
     name: 'Starter Care',
-    price: '$250',
-    cadence: '3 visits',
+    price: '$255',
+    cadence: '3 visits · save 15%',
     description: 'A simple starting point for new patients who want flexibility without a membership.',
     features: [
       '3 office or telehealth visits',
@@ -20,8 +20,8 @@ const bundles = [
   },
   {
     name: 'Standard Care',
-    price: '$450',
-    cadence: '6 visits · most popular',
+    price: '$480',
+    cadence: '6 visits · most popular · save 20%',
     description: 'Our most chosen bundle — enough visits to cover ongoing care, sick visits, and follow-ups.',
     features: [
       '6 office or telehealth visits',
@@ -34,8 +34,8 @@ const bundles = [
   },
   {
     name: 'Max Care',
-    price: '$750',
-    cadence: '12 visits',
+    price: '$780',
+    cadence: '12 visits · save 35%',
     description: 'For patients managing more complex health needs who want unhurried, ongoing access.',
     features: [
       '12 office or telehealth visits',
@@ -47,7 +47,7 @@ const bundles = [
   {
     name: 'Family Flex',
     price: '$700',
-    cadence: '10 shared visits',
+    cadence: '10 shared visits · save 30%',
     description: 'One bundle the whole household can pull from — plus 25% off in-house testing.',
     features: [
       '10 visits shared across family',
@@ -86,14 +86,14 @@ const weight = [
 ]
 
 const insurers = [
-  { name: 'Blue Cross Blue Shield' },
-  { name: 'UnitedHealthcare' },
-  { name: 'Medicare' },
-  { name: 'Colorado Medicaid' },
+  { name: 'Blue Cross Blue Shield', logo: '/insurers/blue-cross-blue-shield.svg' },
+  { name: 'UnitedHealthcare', logo: '/insurers/unitedhealthcare.svg' },
+  { name: 'Medicare', logo: '/insurers/medicare.svg' },
+  { name: 'Colorado Medicaid', logo: '/insurers/colorado-medicaid.svg' },
 ]
 
 const faqs = [
-  { q: 'Do I have to choose between insurance and cash pricing?', a: 'No. Cash options are always available, and we accept several major insurance plans. Super bills are available upon request so you can submit to your plan for reimbursement.' },
+  { q: 'Do you take insurance?', a: 'Not yet — insurance is coming soon. We\'re working to accept several major plans. For now, cash options are always available, and super bills are provided upon request so you can submit to your plan for reimbursement.' },
   { q: 'What is the DPC Membership?', a: 'Direct Primary Care (DPC) is a monthly membership for ongoing primary care access. Pricing is tiered by age, with a one-time enrollment fee.' },
   { q: 'How do Care Bundles work?', a: 'Care Bundles are prepaid sets of visits at a discounted per-visit rate. Use them for office or telehealth visits as you need them throughout the year.' },
   { q: 'Can I use an HSA or FSA?', a: 'Yes — for visits and most services. Itemized receipts and super bills are available on request.' },
@@ -209,11 +209,12 @@ const faqs = [
     <div class="container">
       <SectionHeading
         eyebrow="Insurance"
-        title="Insurance plans we accept."
-        subtitle="More plans coming soon. Cash options always available. Super bills available upon request."
+        title="Insurance coming soon."
+        subtitle="We don't accept insurance just yet — we're working to bring these plans on board. For now, cash options are always available and super bills are provided upon request."
         tag="h2"
       />
       <InsuranceGrid :insurers="insurers" />
+      <p class="insurance-note">Plans we're working to accept. Not yet in-network — check back soon.</p>
     </div>
   </section>
 
@@ -279,6 +280,13 @@ const faqs = [
   font-weight: 600;
   color: var(--color-evergreen-dark);
   white-space: nowrap;
+}
+
+.insurance-note {
+  margin-top: var(--space-4);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--color-ink-soft);
 }
 
 .fineprint {

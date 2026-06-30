@@ -5,6 +5,7 @@ import ContactForm from '@/components/ContactForm.vue'
 import EhrCta from '@/components/EhrCta.vue'
 
 const phone = import.meta.env.VITE_PHONE
+const fax = import.meta.env.VITE_FAX
 const email = import.meta.env.VITE_EMAIL
 
 const cards = [
@@ -42,16 +43,20 @@ const cards = [
             <a :href="`tel:${phone}`">{{ phone }}</a>
           </li>
           <li>
+            <span>Fax</span>
+            {{ fax }}
+          </li>
+          <li>
             <span>Email</span>
             <a :href="`mailto:${email}`">{{ email }}</a>
           </li>
           <li>
             <span>Visit</span>
-            107 Moores Canyon Rd, Trinidad, CO 81082<br /><em>Suite number coming soon</em>
+            107 Moores Canyon Rd, Suite 4<br />Trinidad, CO 81082
           </li>
           <li>
             <span>Hours</span>
-            Mon–Fri 8a–5p · Sat 9a–12p
+            Mon–Fri 8a–5p · Sat 9a–12p<br /><em>Additional hours available based on need and urgency — just ask.</em>
           </li>
         </ul>
       </div>

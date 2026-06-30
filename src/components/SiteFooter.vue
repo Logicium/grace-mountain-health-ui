@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 const phone = import.meta.env.VITE_PHONE
+const fax = import.meta.env.VITE_FAX
 const email = import.meta.env.VITE_EMAIL
 const ehr = import.meta.env.VITE_EHR_URL
 const year = new Date().getFullYear()
@@ -18,14 +19,14 @@ const year = new Date().getFullYear()
 
         <div>
           <h4>Visit</h4>
-          <p>107 Moores Canyon Rd<br />Trinidad, CO 81082</p>
-          <p class="ft__muted">Suite number coming soon</p>
+          <p>107 Moores Canyon Rd, Suite 4<br />Trinidad, CO 81082</p>
         </div>
 
         <div>
           <h4>Reach us</h4>
           <p>
             <a :href="`tel:${phone}`">{{ phone }}</a><br />
+            <span class="ft__muted">Fax {{ fax }}</span><br />
             <a :href="`mailto:${email}`">{{ email }}</a>
           </p>
         </div>
@@ -44,7 +45,7 @@ const year = new Date().getFullYear()
 
       <div class="ft__base">
         <span>© {{ year }} Grace Mountain Health &amp; Wellness</span>
-        <span>HIPAA-compliant • Accessible • In-network with major insurers</span>
+        <span>HIPAA-compliant • Accessible • Insurance coming soon</span>
       </div>
 
       <span class="shape-circle ft__c1 shape-circle--sage" aria-hidden="true" />

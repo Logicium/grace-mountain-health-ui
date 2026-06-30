@@ -1,18 +1,18 @@
 /**
- * EHR / patient portal integration.
- * The practice's existing EHR exposes a deep-link patient portal. We wrap it
- * here so swapping vendors only changes one file.
+ * EHR / patient portal integration (Kareo).
+ * The practice's Kareo patient portal uses a single login entry point. We wrap
+ * it here so swapping vendors only changes one file. The URL is hardcoded as the
+ * default and can be overridden via VITE_EHR_URL.
  */
 
-const PORTAL = import.meta.env.VITE_EHR_URL || '#'
+export const PORTAL_URL = 'https://portal.kareo.com/pp-webapp/app/new/login'
 
-export function openPortal(target: 'home' | 'book' | 'messages' = 'home') {
-  const url = portalUrl(target)
-  window.open(url, '_blank', 'noopener,noreferrer')
+const PORTAL = import.meta.env.VITE_EHR_URL || PORTAL_URL
+
+export function openPortal() {
+  window.open(portalUrl(), '_blank', 'noopener,noreferrer')
 }
 
-export function portalUrl(target: 'home' | 'book' | 'messages' = 'home') {
-  if (PORTAL === '#') return PORTAL
-  const path = target === 'book' ? '/appointments/new' : target === 'messages' ? '/messages' : ''
-  return `${PORTAL.replace(/\/$/, '')}${path}`
+export function portalUrl() {
+  return PORTAL
 }

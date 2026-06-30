@@ -31,5 +31,5 @@ defineProps<{ insurers: Insurer[] }>()
   color: var(--color-evergreen-dark);
   box-shadow: var(--shadow-sm);
 }
-.ig__item img { max-height: 32px; width: auto; opacity: 0.85; }
+.ig__item img { max-height: 40px; max-width: 100%; width: auto; }
 </style>

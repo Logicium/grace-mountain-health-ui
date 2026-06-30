@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" role="img" aria-label="Colorado Medicaid">
+  <circle cx="22" cy="24" r="16" fill="#1f7a4d"/>
+  <path d="M22 15c4 2 7 3 10 3-1 8-4 13-10 16-6-3-9-8-10-16 3 0 6-1 10-3z" fill="#fff"/>
+  <path d="M19 24l2.4 2.4L26 21" stroke="#1f7a4d" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="46" y="21" font-family="'Plus Jakarta Sans',Arial,sans-serif" font-size="14" font-weight="700" fill="#1f5e8c">Colorado</text>
+  <text x="46" y="38" font-family="'Plus Jakarta Sans',Arial,sans-serif" font-size="14" font-weight="700" fill="#1f7a4d">Medicaid</text>
+</svg>

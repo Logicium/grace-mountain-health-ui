@@ -37,7 +37,7 @@ const routes = [
     meta: {
       title: 'Pricing & Insurance — Grace Mountain Health & Wellness',
       description:
-        'Transparent pricing, in-network insurance, and a flexible Mountain Membership for deeper access.',
+        'Transparent cash pricing and a flexible membership for deeper access. Insurance coming soon.',
     },
   },
   {
