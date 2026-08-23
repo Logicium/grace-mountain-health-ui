@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import { content } from '@/data/site'
 import HeroHome from '@/components/HeroHome.vue'
 import PillSection from '@/components/PillSection.vue'
 import SectionHeading from '@/components/SectionHeading.vue'
@@ -9,12 +10,6 @@ import EhrCta from '@/components/EhrCta.vue'
 import BaseButton from '@/components/BaseButton.vue'
 import { fetchVlogPosts, type VlogPost } from '@/services/strapi'
 
-const services = [
-  { title: 'Primary care for the whole family', description: 'New patient visits, follow-ups, annual exams, lab review, and care coordination — delivered with continuity and time.', tone: 'cream' as const },
-  { title: 'Walk-in & same-day sick visits', description: 'Coughs, colds, fever, sore throat, ear pain, UTIs, and more — seen quickly, in clinic or by telehealth when appropriate.', tone: 'sage' as const },
-  { title: 'Chronic disease management', description: 'Diabetes, hypertension, asthma, thyroid, and more — managed with steady follow-up and shared care plans.', tone: 'sky' as const },
-  { title: 'Weight & wellness', description: 'Medically guided weight management, IV hydration, and wellness injections — with GLP-1 options when appropriate.', tone: 'terracotta' as const },
-]
 
 const posts = ref<VlogPost[]>([])
 onMounted(async () => { posts.value = (await fetchVlogPosts(3)) })
@@ -27,14 +22,20 @@ onMounted(async () => { posts.value = (await fetchVlogPosts(3)) })
   <section class="section" aria-labelledby="services-title">
     <div class="container">
       <SectionHeading
-        eyebrow="What we do"
-        :title="'Care for the whole life — not just the visit.'"
-        subtitle="A focused set of services delivered with depth, so you get attention instead of a hand-off."
+        :eyebrow="content.services.eyebrow"
+        :title="content.services.title"
+        :subtitle="content.services.subtitle"
         align="center"
         tag="h2"
       />
       <div class="grid grid-4">
-        <ServiceCard v-for="s in services" :key="s.title" v-bind="s" />
+        <ServiceCard
+          v-for="s in content.services.items"
+          :key="s.title"
+          :title="s.title"
+          :description="s.description"
+          :tone="s.tone as 'cream' | 'sage' | 'sky' | 'terracotta'"
+        />
       </div>
     </div>
   </section>
@@ -43,17 +44,13 @@ onMounted(async () => { posts.value = (await fetchVlogPosts(3)) })
   <PillSection tone="evergreen">
     <SectionHeading
       light
-      eyebrow="Our approach"
-      title="Compassionate care, close to home."
-      subtitle="Born from 24+ years in fire, EMS, and rural emergency medicine — Grace Mountain is built on the idea that rural families deserve high-quality healthcare without the runaround."
+      :eyebrow="content.approach.eyebrow"
+      :title="content.approach.title"
+      :subtitle="content.approach.subtitle"
       tag="h2"
     />
     <div class="approach">
-      <div v-for="(item, i) in [
-        { n: '01', t: 'Listen first', d: 'Every visit starts with what matters most to you today.' },
-        { n: '02', t: 'Plain language', d: 'No jargon. Clear answers and shared decisions.' },
-        { n: '03', t: 'Stay close', d: 'Continuity, trust, and a team that knows your story.' },
-      ]" :key="item.n" class="approach__step">
+      <div v-for="(item, i) in content.approach.steps" :key="item.n" class="approach__step">
         <span class="approach__num">{{ item.n }}</span>
         <h3>{{ item.t }}</h3>
         <p>{{ item.d }}</p>
@@ -66,41 +63,21 @@ onMounted(async () => { posts.value = (await fetchVlogPosts(3)) })
   <section class="section" aria-labelledby="founders-title">
     <div class="container">
       <SectionHeading
-        eyebrow="Meet the founders"
-        title="A husband-and-wife team rooted in the community."
-        subtitle="Jeff and Dena Lewis founded Grace Mountain Health & Wellness with a shared vision for accessible, relationship-centered care."
+        :eyebrow="content.founders.eyebrow"
+        :title="content.founders.title"
+        :subtitle="content.founders.subtitle"
         tag="h2"
       />
       <div class="founders">
-        <article class="founder">
-          <h3 class="founder__name">Jeff Lewis, BSN, RN, NRP</h3>
-          <p class="founder__role">Co-Founder</p>
-          <p>
-            With more than 24 years of Fire and EMS experience across urban,
-            critical care, and rural emergency medicine, Jeff brings deep
-            operational leadership and a paramedic&rsquo;s heart for patients in
-            their most urgent moments. As a Registered Nurse, his vision is rooted
-            in restoring trust through accessible, relationship-centered care for
-            the families of Southern Colorado and Northern New Mexico.
-          </p>
-        </article>
-
-        <article class="founder">
-          <h3 class="founder__name">Dena Lewis, DNP, AGACNP-BC, RN</h3>
-          <p class="founder__role">Co-Founder &amp; Provider</p>
-          <p>
-            A doctoral-prepared Nurse Practitioner with more than 25 years in
-            healthcare, Dr. Lewis has cared for patients across cardiology,
-            critical care, hospital and emergency medicine, hospice, and
-            underserved rural communities. She believes care should be
-            collaborative and individualized — grounded in trust, education, and
-            whole-person wellness of body, mind, and spirit.
-          </p>
+        <article v-for="p in content.founders.people" :key="p.name" class="founder">
+          <h3 class="founder__name">{{ p.name }}</h3>
+          <p class="founder__role">{{ p.role }}</p>
+          <p>{{ p.bio }}</p>
         </article>
       </div>
 
       <div class="founders__cta">
-        <BaseButton to="/about" variant="outline">Read their full story</BaseButton>
+        <BaseButton to="/about" variant="outline">{{ content.founders.ctaLabel }}</BaseButton>
       </div>
     </div>
   </section>
@@ -109,8 +86,8 @@ onMounted(async () => { posts.value = (await fetchVlogPosts(3)) })
   <section class="section" aria-labelledby="vlog-title">
     <div class="container">
       <div class="vlog-head">
-        <SectionHeading eyebrow="From the vlog" title="Honest health, in plain language." tag="h2" />
-        <BaseButton to="/vlog" variant="outline">All posts</BaseButton>
+        <SectionHeading :eyebrow="content.vlog.eyebrow" :title="content.vlog.title" tag="h2" />
+        <BaseButton to="/vlog" variant="outline">{{ content.vlog.allLabel }}</BaseButton>
       </div>
       <div class="grid grid-3">
         <VlogCard v-for="p in posts" :key="p.id" :post="p" />

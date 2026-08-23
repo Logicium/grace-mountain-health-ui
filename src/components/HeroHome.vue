@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { content } from '@/data/site'
 import BaseButton from '@/components/BaseButton.vue'
 import StatPill from '@/components/StatPill.vue'
 
