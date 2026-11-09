@@ -2,13 +2,7 @@
 import PillSection from '@/components/PillSection.vue'
 import SectionHeading from '@/components/SectionHeading.vue'
 import EhrCta from '@/components/EhrCta.vue'
-
-const values = [
-  { t: 'Listen first', d: 'Every visit starts with the question — what matters most to you today?' },
-  { t: 'Plain language', d: 'No jargon, no patronizing. Just clear answers and shared decisions.' },
-  { t: 'Local roots', d: 'Care designed for the families of Southern Colorado and Northern New Mexico.' },
-  { t: 'Trust &amp; dignity', d: 'Every patient deserves to feel heard, valued, and treated with respect.' },
-]
+import { aboutClosing as closing, aboutValues as values, founderBios } from '@/data/about'
 </script>
 
 <template>
@@ -48,7 +42,7 @@ const values = [
     <div class="values">
       <div v-for="(v, i) in values" :key="v.t" class="values__item">
         <span class="values__num">{{ String(i + 1).padStart(2, '0') }}</span>
-        <h3 v-html="v.t" />
+        <h3>{{ v.t }}</h3>
         <p>{{ v.d }}</p>
       </div>
     </div>
@@ -64,103 +58,25 @@ const values = [
         tag="h2"
       />
 
-      <article class="bio">
+      <article v-for="b in founderBios" :key="b.name" class="bio">
         <header class="bio__head">
-          <h3 class="bio__name">Jeff Lewis, BSN, RN, NRP</h3>
-          <p class="bio__role">Co-Founder</p>
+          <h3 class="bio__name">{{ b.name }}</h3>
+          <p class="bio__role">{{ b.role }}</p>
         </header>
-        <p>
-          Jeff Lewis brings more than 24 years of Fire and EMS experience to
-          Grace Mountain Health &amp; Wellness, serving communities in urban,
-          critical care, and rural emergency medicine settings. Throughout his
-          career as a paramedic, Jeff cared for patients during some of life&rsquo;s
-          most difficult and urgent moments — experiences that shaped his
-          commitment to compassionate, dependable healthcare.
-        </p>
-        <p>
-          As a Registered Nurse and healthcare leader, Jeff understands the unique
-          challenges facing rural communities across Southern Colorado and Northern
-          New Mexico. His vision for Grace Mountain Health &amp; Wellness is rooted
-          in restoring trust in healthcare by providing accessible,
-          relationship-centered care focused on the needs of local families.
-          Jeff&rsquo;s leadership style is built on integrity, preparedness,
-          teamwork, and treating every patient with respect and dignity. He is
-          passionate about building a clinic where patients feel heard, valued, and
-          genuinely cared for close to home.
-        </p>
-      </article>
-
-      <article class="bio">
-        <header class="bio__head">
-          <h3 class="bio__name">Dena Lewis, DNP, AGACNP-BC, RN</h3>
-          <p class="bio__role">Co-Founder &amp; Provider</p>
-        </header>
-        <p>
-          Dr. Dena Lewis is a doctoral-prepared Nurse Practitioner with more than 25
-          years of healthcare experience serving patients across Colorado, New Mexico,
-          West Virginia, and Northern Virginia. Her journey began in the Eastern
-          Panhandle of West Virginia and the greater Washington D.C. and Baltimore
-          metropolitan area, where she gained experience in larger hospital systems
-          and higher-acuity environments — beginning in emergency room registration
-          and advancing through roles as an ER technician, cardiology technician,
-          registered nurse, and ultimately a Doctorally prepared Nurse Practitioner.
-        </p>
-        <p>
-          After relocating to Southern Colorado in 2020, Dr. Lewis transitioned into
-          rural healthcare and has since dedicated herself to serving patients
-          throughout Southern Colorado and Northern New Mexico. Her diverse
-          background across both large metropolitan systems and rural communities
-          gives her a unique perspective on accessibility, continuity of care, and
-          the importance of strong patient-provider relationships.
-        </p>
-        <p>
-          For more than 11 years as a Nurse Practitioner, Dr. Lewis has cared for
-          patients in cardiology, critical care, hospital medicine, emergency
-          medicine, hospice, correctional healthcare, and underserved rural
-          communities. Her clinical experience ranges from managing critically ill
-          ICU patients and performing acute care procedures to treating chronic
-          disease and providing preventative, wellness-focused, and
-          relationship-centered care for individuals and families.
-        </p>
-        <p>
-          Dr. Lewis earned her Bachelor of Science in Biology and later in Nursing
-          before completing her Doctor of Nursing Practice degree in
-          Adult-Gerontology Acute Care. She later completed post-doctoral Family
-          Nurse Practitioner training through Maryville University, further
-          expanding her background in comprehensive primary and family-centered
-          care. She is also a member of Sigma Theta Tau International Honor Society
-          of Nursing in recognition of her academic achievement, leadership, and
-          commitment to excellence in nursing practice.
-        </p>
-        <p>
-          Dr. Lewis believes healthcare should be collaborative, individualized, and
-          grounded in trust. She works closely with each patient to develop
-          realistic, well-rounded care plans that consider physical, emotional,
-          spiritual, and financial well-being — empowering patients through
-          education and identifying practical, cost-effective treatment options
-          that align with their personal goals, values, and circumstances. Her
-          professional interests include primary care, chronic disease management,
-          metabolic health, weight management, lifestyle medicine, preventative
-          care, and whole-person wellness. Guided by her Christian faith, she
-          believes true healing involves caring for the body, mind, and spirit.
-        </p>
+        <p v-for="(para, i) in b.paragraphs" :key="i">{{ para }}</p>
       </article>
 
       <div class="closing">
         <div class="closing__text">
-          <span class="eyebrow">Rooted in the community</span>
-          <h3 class="closing__title">Local residents. Long-term commitment.</h3>
-          <p>
-            Jeff and Dena are deeply invested in the health and future of the
-            communities they serve. Their commitment extends beyond the clinic
-            walls — through compassionate care, trust, and long-term relationships.
-          </p>
+          <span class="eyebrow">{{ closing.eyebrow }}</span>
+          <h3 class="closing__title">{{ closing.title }}</h3>
+          <p>{{ closing.body }}</p>
         </div>
         <aside class="closing__quote" aria-label="Pull quote">
           <svg class="closing__mark" viewBox="0 0 32 32" aria-hidden="true">
             <path d="M9 8c-3.5 1.6-6 5-6 9v7h9V15H7c0-2.5 1.5-4.5 4-5.6L9 8zm14 0c-3.5 1.6-6 5-6 9v7h9V15h-5c0-2.5 1.5-4.5 4-5.6L23 8z" fill="currentColor"/>
           </svg>
-          <p>Rural families deserve care close to home.</p>
+          <p>{{ closing.quote }}</p>
         </aside>
       </div>
     </div>

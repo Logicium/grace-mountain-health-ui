@@ -3,10 +3,13 @@ import { onMounted, ref, watch } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import { fetchVlogPost, type VlogPost } from '@/services/strapi'
 import EhrCta from '@/components/EhrCta.vue'
+import { useSeoData } from '@/kit/seo'
 
 const route = useRoute()
 const post = ref<VlogPost | null>(null)
 const loading = ref(true)
+// title, description, canonical, share card and BlogPosting follow the loaded post
+useSeoData(post)
 
 async function load(slug: string) {
   loading.value = true

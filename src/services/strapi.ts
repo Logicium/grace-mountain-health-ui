@@ -60,15 +60,25 @@ function mapPost(e: StrapiEntity<RawVlog>): VlogPost {
   }
 }
 
+/**
+ * The published posts, or a throw. The build-time prerender calls this so it
+ * can tell a reachable CMS from the demo fallback; the app calls the
+ * forgiving fetchVlogPosts below.
+ */
+export async function loadVlogPosts(limit = 12, fetchFn: typeof fetch = fetch): Promise<VlogPost[]> {
+  if (!BASE) throw new Error('VITE_STRAPI_URL is not set')
+  const url = `${BASE}/api/vlog-posts?populate=cover&sort=publishedAt:desc&pagination[limit]=${limit}`
+  const res = await fetchFn(url, { headers: headers() })
+  if (!res.ok) throw new Error(String(res.status))
+  const json = (await res.json()) as StrapiResponse<RawVlog>
+  const list = Array.isArray(json.data) ? json.data : []
+  return list.map(mapPost)
+}
+
 export async function fetchVlogPosts(limit = 12): Promise<VlogPost[]> {
   if (!BASE) return demoPosts.slice(0, limit)
   try {
-    const url = `${BASE}/api/vlog-posts?populate=cover&sort=publishedAt:desc&pagination[limit]=${limit}`
-    const res = await fetch(url, { headers: headers() })
-    if (!res.ok) throw new Error(String(res.status))
-    const json = (await res.json()) as StrapiResponse<RawVlog>
-    const list = Array.isArray(json.data) ? json.data : []
-    return list.map(mapPost)
+    return await loadVlogPosts(limit)
   } catch {
     return demoPosts.slice(0, limit)
   }
@@ -88,7 +98,7 @@ export async function fetchVlogPost(slug: string): Promise<VlogPost | null> {
   }
 }
 
-const demoPosts: VlogPost[] = [
+export const demoPosts: VlogPost[] = [
   {
     id: 1,
     slug: 'modern-primary-care-feels-different',

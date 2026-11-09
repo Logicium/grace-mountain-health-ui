@@ -1,9 +1,9 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
-  // The SEO kit's build half runs under Node, not in the browser bundle;
-  // it is type-checked by tsconfig.node.json instead.
-  "exclude": ["src/**/__tests__/*", "src/kit/seo/stamp.ts", "src/kit/seo/plugin.ts", "src/kit/seo/postbuild.ts"],
+  // The SEO kit's build-time half runs under Node in the client's repo, not in
+  // the browser bundle; it is type-checked by tsconfig.node.json instead.
+  "exclude": ["src/**/__tests__/*", "src/kit/seo/node.ts", "src/kit/seo/prerender.ts", "src/kit/seo/browser.ts", "src/kit/seo/expand.ts", "src/kit/seo/vercel.ts"],
   "compilerOptions": {
     // Extra safety for array and object lookups, but may have false positives.
     "noUncheckedIndexedAccess": true,
