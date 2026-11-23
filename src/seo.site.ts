@@ -14,6 +14,8 @@ import type { SiteConfig } from '@/kit/seo'
 
 export const site: SiteConfig = {
   siteUrl: 'https://www.gracemountainhealth.co',
+  // Google Search Console ownership tag (home page only). Managed by the studio.
+  verification: { google: '39mwbm35H0cJkubyBx1WN9oMpcjqqlZm9QXXnKO1ttA' },
   name: 'Grace Mountain Health & Wellness',
   tagline: 'Primary care in Trinidad, Colorado',
   description:
